@@ -455,6 +455,9 @@ display:
           it.printf(0, l, f, TextAlign::TOP_LEFT, "%s", id(mac_address).state.c_str());
           l += lh;
 
+          it.printf(0, l, f, TextAlign::TOP_LEFT, "%s", id(ip_address).state.c_str());
+          l += lh;
+
           it.printf(0, l, f, TextAlign::TOP_LEFT,
             "Wifi: %s (%d)",
             (id(wi_fi).is_disabled() ? "off" : (id(wi_fi).is_connected() ? id(wi_fi).wifi_ssid().c_str() : "n/a")),
@@ -1537,6 +1540,9 @@ text_sensor:
   - platform: wifi_info
     mac_address:
       id: mac_address
+  - platform: wifi_info
+    ip_address:
+      id: ip_address
 
 switch:
   # https://esphome.io/components/switch/index.html
